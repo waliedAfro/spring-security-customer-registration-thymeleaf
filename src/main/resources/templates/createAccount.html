@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Customers Registration System </title>
+		
+		<link th:href="@{/css/main.css}" 
+		 rel="stylesheet"/>
+</head>
+<body>
+<!-- nav bar using bootstrap -->
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Customers Registration System</a>
+    </div>
+    
+    <div >
+   		<ul > <li ></li>
+    	</ul>
+    </div>
+  </div>
+</nav>
+<!-- end nav bar -->
+
+<br />
+
+	<div class="container"> <!-- bootstrap CSS -->
+		
+		<div class="row">
+		<div class="mx-auto col-md-6 col-md-offset-3">
+		
+		
+		<div class="row">
+			<h1 class="text-center">Create Account</h1>
+		</div>
+		
+		<!-- success message -->
+		<div  th:if="${param.success}">
+				<div class="alert alert-info">
+					Account Created Successfully 
+				</div>
+		</div>
+		
+		
+			
+			<form th:action="@{/registration}" th:object="${customer}" method="POST">
+				<div class="form-group">
+				<div class="md-3">
+					<label for="firstName"> First Name </label>
+					<input
+					type="text"
+					name="firstName"
+					class="form-control"
+					id="firstName"
+					placeholder="Please enter First Name"
+					th:field="*{firstName}"
+					required="required"
+					autofocus="autofocus"
+					/>
+				</div>
+				
+				<div class="md-3">
+					<label for="surname"> Surname  </label>
+					<input
+					type="text"
+					name="surname"
+					class="form-control"
+					id="surname"
+					placeholder="Please enter Surname"
+					th:field="*{surname}"
+					required="required"
+					/>
+				</div>
+				
+				<div class="md-3">
+					<label for="mobile"> Mobile No </label>
+					<input
+					type="text"
+					name="mobile"
+					class="form-control"
+					id="mobile"
+					placeholder="Please enter Mobile No"
+					th:field="*{mobile}"
+					required="required"
+					/>
+				</div>
+				
+				<div class="md-3">
+					<label for="password"> Password </label>
+					<input
+					type="password"
+					name="password"
+					class="form-control"
+					id="password"
+					placeholder="Please enter password"
+					th:field="*{password}"
+					required="required"
+					/>
+				</div>
+				
+				<div class="md-3">
+					<div class="form-check form-check-inline">
+						 <input class="form-check-input" 
+						 		type="radio" 
+						 		name="genderM" 
+						 		id="gender" 
+						 		value="M" 
+						 		th:field="*{gender}"
+						 		checked="checked">
+						 <label class="form-check-label" for="genderM">
+						    Male
+						 </label>
+					</div>
+					
+					<div class="form-check form-check-inline">
+						 <input class="form-check-input" 
+						 		type="radio" 
+						 		name="genderF" 
+						 		id="genderM" 
+						 		th:field="*{gender}"
+						 		value="F">
+						 <label class="form-check-label" for="genderF">
+						    Female
+						 </label>
+					</div>
+				</div>
+				</div>
+				<br/>
+				<div class="box-footer">
+					<button type="submit" class="btn btn-primary">
+					Create Account
+					</button>
+					<span>
+					       I have Account  
+					<a th:href="@{/login}"> Login here  </a>
+					</span>
+				</div>
+			</form>
+		
+		
+		</div>
+		</div>
+	</div>
+	
+</body>
+</html>

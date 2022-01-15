@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="ISO-8859-1">
+<title>Customers Registration System </title>
+<link th:href="@{/css/main.css}"  rel="stylesheet"/>
+
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+  float: left;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111111;
+}
+</style>
+</head>
+<body>
+<!-- nav bar -->
+
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Customers Registration System</a>
+    </div>
+    
+    <div >
+    <ul >
+      <li class="active"><a href="#">Home</a></li>
+      <li sec:authorize="isAuthenticated()">
+      	<a  th:href="@{/logout}"> Logout </a>
+      
+      </li>
+      
+    </ul>
+    </div>
+  </div>
+</nav>
+<!-- end nav bar -->
+	
+
+	<br />
+
+	<div class="container">
+		
+		
+		<div class="mx-auto col-md-10 col-md-offset-1 ">
+		
+		<div class="row">
+			<div class="col col-md-3">
+				<div class="row">
+					<div class="card">
+					Welcome :
+						<span sec:authentication="principal.username"> 
+						 </span>
+					</div>
+  						<div class="vr" style="height: 300px;"></div>
+				</div>
+			</div>
+			<div class="col col-md-7">
+					<h1> Home Page </h1>
+			
+			</div>
+		
+		</div>
+		
+		
+		</div>
+		</div>
+	
+	
+</body>
+</html>

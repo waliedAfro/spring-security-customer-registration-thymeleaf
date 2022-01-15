@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Customers Registration System </title>
+<link th:href="@{/css/main.css}"  rel="stylesheet"/>
+</head>
+<body>
+			<!-- nav bar using bootstrap -->
+			<nav class="navbar navbar-dark bg-dark">
+			  <div class="container-fluid">
+			    <div class="navbar-header">
+			      <a class="navbar-brand" href="#">Customers Registration System</a>
+			    </div>
+			    
+			    <div >
+			   		<ul > <li ></li>
+			    	</ul>
+			    </div>
+			  </div>
+			</nav>
+			<!-- end nav bar -->
+	<br />
+
+	<div class="container">
+		
+		
+		<div class="mx-auto col-md-6 col-md-offset-3 ">
+		
+		
+		<div class="row">
+			<h1 class="text-center">Login Form</h1>
+		</div>
+		
+		<!-- logged out message -->
+		<div  th:if="${param.logout}">
+				<div class="alert alert-info">
+					You have been Logged out
+				</div>
+		</div>
+		
+		<!-- show Invalid User Name or Password . if customer enter wrong credential   -->
+		<div  th:if="${param.error}">
+				<div class="alert alert-danger">
+					Invalid User Name or Password .
+				</div>
+		</div>
+		
+		
+		<br />
+		
+			
+			<form th:action="@{/login}"  method="POST">
+				<div class="form-group">
+				<div class="md-3">
+					<label for="username"> User Name </label>
+					<input
+					type="text"
+					name="username"
+					class="form-control"
+					id="username"
+					placeholder="Please enter Mobile No"
+					autofocus="autofocus"
+					/>
+				</div>
+				
+				<div class="md-3">
+					<label for="password"> Password </label>
+					<input
+					type="password"
+					name="password"
+					class="form-control"
+					id="password"
+					placeholder="Please enter password"
+				
+					/>
+				</div>
+			
+				
+				</div>
+				
+				<br/>
+				<div class="mx-auto col-md-6">
+					<button type="submit" class="btn btn-primary">
+					Login
+					</button>
+					
+				</div>
+				</form>
+				</div>
+				
+				<br/>
+				
+				
+			
+			
+			<div class="mx-auto col-md-6 col-md-offset-3">
+					<span>
+					 New User ?  
+					<a th:href="@{/registration}">Sign Up </a>
+					</span>
+			</div>
+		
+		
+		</div>
+		</div>
+	
+	
+</body>
+</html>
